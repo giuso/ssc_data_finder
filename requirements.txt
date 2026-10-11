@@ -1,0 +1,13 @@
+# Runtime dependencies (same as pyproject.toml, incl. the GUI extra).
+# Install with:  pip install -r requirements.txt && pip install -e .
+requests>=2.31
+click>=8.1
+pandas>=2.0
+# urllib3 v2 needs OpenSSL 1.1.1+; the macOS system Python 3.9 ships LibreSSL
+urllib3<2; python_version < "3.10"
+
+# GUI
+streamlit>=1.40
+pyvis>=0.3
+networkx>=3.0
+altair>=5.0

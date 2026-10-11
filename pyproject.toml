@@ -1,0 +1,27 @@
+[project]
+name = "ssc-data-finder"
+version = "0.1.0"
+description = "Find published papers using single-cell RNA-seq and cross-reference them against public datasets (GEO)."
+requires-python = ">=3.9"
+dependencies = [
+    "requests>=2.31",
+    "click>=8.1",
+    "pandas>=2.0",
+    # urllib3 v2 needs OpenSSL 1.1.1+; macOS system Python 3.9 uses LibreSSL
+    "urllib3<2; python_version < \"3.10\"",
+]
+
+[project.optional-dependencies]
+notebook = ["jupyterlab>=4.0", "ipykernel>=6.0"]
+gui = ["streamlit>=1.40", "pyvis>=0.3", "networkx>=3.0", "altair>=5.0"]
+
+[project.scripts]
+ssc-data-finder = "ssc_data_finder.cli:main"
+ssc-data-finder-gui = "ssc_data_finder.gui:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
